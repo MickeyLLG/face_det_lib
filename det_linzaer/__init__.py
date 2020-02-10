@@ -1,0 +1,1 @@
+from .face_detector import linzaer_face_detector
