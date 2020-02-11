@@ -1,7 +1,4 @@
 import sys
-
-sys.path.append('..')
-from Interface import face_detector
 import argparse
 import torch
 import torch.backends.cudnn as cudnn
@@ -15,6 +12,7 @@ from models.net_rfb import RFB
 from layers.functions.prior_box import PriorBox
 from utils.box_utils import decode, decode_landm
 from utils.nms.py_cpu_nms import py_cpu_nms
+from Interface import face_detector
 
 
 def check_keys(model, pretrained_state_dict):

@@ -1,6 +1,3 @@
-import sys
-
-sys.path.append('..')
 from Interface import face_detector
 import dlib
 import cv2

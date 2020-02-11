@@ -1,8 +1,5 @@
 import dlib
 import cv2
-import sys
-
-sys.path.append('..')
 from Interface import landmark_detector
 
 # print (os.path.abspath('.'))

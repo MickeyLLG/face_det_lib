@@ -1,14 +1,12 @@
 import sys
 import onnx
-
-sys.path.append('..')
-from Interface import face_detector
 import cv2
 import onnxruntime as ort
 import numpy as np
 
 sys.path.append('det_linzaer')
 import vision.utils.box_utils_numpy as box_utils
+from Interface import face_detector
 
 label_path = "det_linzaer/models/voc-model-labels.txt"
 
