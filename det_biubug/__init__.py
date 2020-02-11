@@ -1,0 +1,1 @@
+from .face_detector import biubug_face_detector

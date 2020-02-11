@@ -1,2 +1,3 @@
-# face_det_lib
-*还在整理biubug*
+# **face_det_lib**
+* *完成biubug、centerface、dlib、linzaer、pfld模块的封装*
+

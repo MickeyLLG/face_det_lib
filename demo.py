@@ -5,10 +5,11 @@ from det_dlib import dlib_landmark_detector, dlib_face_detector
 from det_pfld import pfld_landmark_detector
 from det_linzaer import linzaer_face_detector
 from det_centerface import centerface_face_detector
+from det_biubug import biubug_face_detector
 
 parser = argparse.ArgumentParser(description='Test')
-parser.add_argument('--cpu', action="store_true", default=True, help='Use cpu inference.')
-parser.add_argument('--face_det', default='centerface',
+# parser.add_argument('--cpu', action="store_true", default=True, help='Use cpu inference.')
+parser.add_argument('--face_det', default='biubug',
                     type=str, help='Method used to detect faces.')
 parser.add_argument('--landmark_det', default='pfld',
                     type=str, help='Method used to detect landmarks.')
@@ -35,6 +36,8 @@ if __name__ == '__main__':
         face_detector = linzaer_face_detector()
     elif args.face_det == 'centerface':
         face_detector = centerface_face_detector()
+    elif args.face_det == 'biubug':
+        face_detector = biubug_face_detector()
     else:
         print("Don't support face detector!")
         exit(0)
