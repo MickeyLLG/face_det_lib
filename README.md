@@ -1,2 +1,2 @@
 # face_det_lib
-*还在整理biubug,centerface.*
+*还在整理biubug和centerface.*
