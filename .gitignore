@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/workspace.xml
+__pycache__/
+det_dlib/__pycache__/
+det_linzaer/__pycache__/
+det_linzaer/vision/__pycache__/
+det_linzaer/vision/utils/__pycache__/
+det_pfld/__pycache__/
+/result/1.avi
+/result/
