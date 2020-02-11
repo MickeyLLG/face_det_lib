@@ -1,0 +1,1 @@
+from .face_detector import mtcnn_face_detector

@@ -1,12 +1,7 @@
 import argparse
 import cv2
 import time
-from det_dlib import dlib_landmark_detector, dlib_face_detector
-from det_pfld import pfld_landmark_detector
-from det_linzaer import linzaer_face_detector
-from det_centerface import centerface_face_detector
-from det_biubug import biubug_face_detector
-from det_mobileface import mobileface_face_detector
+
 
 parser = argparse.ArgumentParser(description='Test')
 # parser.add_argument('--cpu', action="store_true", default=True, help='Use cpu inference.')
@@ -20,8 +15,10 @@ parser.add_argument("--video", type=str, default='test/test_15fps.avi',
                     help="Video file to be processed.")
 parser.add_argument("--cam", type=int, default=None,
                     help="The webcam index.")
-parser.add_argument("--save_path", type=str, default='result/1.avi',
+parser.add_argument("--save_path", type=str, default='result/result.avi',
                     help="The save path.")
+parser.add_argument("--fps", type=int, default=15,
+                    help="The frames per second of the video to save.")
 parser.add_argument("--time_cost", type=str, default=None,
                     help="The path(.txt) to save time cost.")
 parser.add_argument("--stretchY", type=float, default=1.0,
@@ -32,21 +29,31 @@ if __name__ == '__main__':
     face_detector = None
     landmark_detector = None
     if args.face_det == 'dlib':
+        from det_dlib import dlib_face_detector
         face_detector = dlib_face_detector()
+    elif args.face_det == 'mtcnn':
+        from det_mtcnn import mtcnn_face_detector
+        face_detector = mtcnn_face_detector()
     elif args.face_det == 'linzaer':
+        from det_linzaer import linzaer_face_detector
         face_detector = linzaer_face_detector()
     elif args.face_det == 'centerface':
+        from det_centerface import centerface_face_detector
         face_detector = centerface_face_detector()
     elif args.face_det == 'biubug':
+        from det_biubug import biubug_face_detector
         face_detector = biubug_face_detector()
     elif args.face_det == 'mobileface':
+        from det_mobileface import mobileface_face_detector
         face_detector = mobileface_face_detector()
     else:
         print("Don't support face detector!")
         exit(0)
     if args.landmark_det == 'dlib':
+        from det_dlib import dlib_landmark_detector
         landmark_detector = dlib_landmark_detector()
     elif args.landmark_det == 'pfld':
+        from det_pfld import pfld_landmark_detector
         landmark_detector = pfld_landmark_detector()
     else:
         print("Don't support landmark detector!")
@@ -63,7 +70,7 @@ if __name__ == '__main__':
         cap = cv2.VideoCapture(video_src)
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         # fps = cap.get(cv2.CAP_PROP_FPS)
-        fps = 15
+        fps = args.fps
         size = (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)))
         out = cv2.VideoWriter(save_path, fourcc, fps, size)
         while cap.isOpened():
@@ -74,7 +81,7 @@ if __name__ == '__main__':
             faces = face_detector.det_faces(frame)  # faces detection
             faces = [[face[0], face[1], face[2], int(face[3] * args.stretchY)] for face in faces]  # stretch along Y
             landmarks = landmark_detector.det_landmarks(frame, faces=faces)  # landmarks detection
-            time_cost.append(time.time() - tic)
+            time_cost.append(str(time.time() - tic))
             for face in faces:
                 cv2.rectangle(frame, (face[0], face[1]), (face[0] + face[2], face[1] + face[3]), (0, 255, 0), 1)
             for marks in landmarks:
