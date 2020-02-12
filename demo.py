@@ -4,10 +4,9 @@ import time
 
 
 parser = argparse.ArgumentParser(description='Test')
-# parser.add_argument('--cpu', action="store_true", default=True, help='Use cpu inference.')
-parser.add_argument('--face_det', default='zqmtcnn',
+parser.add_argument('--face_det', default='centerface',
                     type=str, help='Method used to detect faces.')
-parser.add_argument('--landmark_det', default='L106Net112',
+parser.add_argument('--landmark_det', default='pfld',
                     type=str, help='Method used to detect landmarks.')
 parser.add_argument("--image", type=str, default=None,
                     help="image file to be processed.")
@@ -22,7 +21,7 @@ parser.add_argument("--fps", type=int, default=15,
 parser.add_argument("--time_cost", type=str, default=None,
                     help="The path(.txt) to save time cost.")
 parser.add_argument("--stretchY", type=float, default=1.0,
-                    help="The face boxes usually need to stretch along Y axis,this is the stretch rate.")
+                    help="The face boxes usually need to be stretched along axis Y,this is the stretch rate.")
 args = parser.parse_args()
 
 if __name__ == '__main__':

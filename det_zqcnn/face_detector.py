@@ -45,12 +45,14 @@ def get_face_boxes(img, prefix, epoch, batch_size, ctx,
     return boxes_c
 
 
-prefix = ['det_zqcnn/model/pnet20_v1', 'det_zqcnn/model/rnet_v1', 'det_zqcnn/model/onet_v1']
+prefix = ['det_zqcnn/model/pnet20_v1',
+          'det_zqcnn/model/rnet_v1',
+          'det_zqcnn/model/onet_v1']  # prefix of model name
 ctx = mx.cpu(0)
-epoch = [16, 16, 16]
-batch_size = [2048, 256, 16]
-thresh = [0.5, 0.5, 0.7]
-min_face = 20
+epoch = [16, 16, 16]  # epoch number of model to load
+batch_size = [2048, 256, 16]  # list of batch size used in prediction
+thresh = [0.5, 0.5, 0.7]  # list of thresh for pnet, rnet, onet
+min_face = 20  # minimum face size for detection
 
 
 class zqmtcnn_face_detector(face_detector):
