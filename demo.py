@@ -19,7 +19,7 @@ parser.add_argument("--save_path", type=str, default='result/result.avi',
 parser.add_argument("--fps", type=int, default=15,
                     help="The frames per second of the video to save.")
 parser.add_argument("--time_cost", type=str, default=None,
-                    help="The path(.txt) to save time cost.")
+                    help="The path(.txt) to save time cost per frame.")
 parser.add_argument("--stretchY", type=float, default=1.0,
                     help="The face boxes usually need to be stretched along axis Y,this is the stretch rate.")
 args = parser.parse_args()
@@ -105,6 +105,9 @@ if __name__ == '__main__':
         out.release()
         cv2.destroyAllWindows()
     else:
+        if args.save_path is None:
+            print("Save path is required!")
+            exit(0)
         frame = cv2.imread(args.image)
         tic = time.time()
         faces = face_detector.det_faces(frame)
