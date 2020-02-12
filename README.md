@@ -22,7 +22,7 @@ git clone https://github.com/MickeyLLG/face_det_lib.git
 ```
 ## 运行
 视频文件、摄像头序号或图像文件需要作为参数传入。如果没有传入，则会默认检测test/test_15fps.avi
-### 视频
+### 视频输入
 
 OpenCV支持的任何视频格式均可 (`mp4`, `avi` etc.):
 
@@ -36,7 +36,7 @@ python demo.py --video /path/to/video.mp4 --save_path /path/to/save.mp4 --face_d
 ```bash
 python demo.py --cam 0 --save_path /path/to/save.mp4 --face_det fd --landmark_det ld
 ```
-### 图片
+### 图片输入
 
 OpenCV支持的任何图片格式均可 (`jpg`, `jpeg` etc.)，路径中不要有中文:
 
