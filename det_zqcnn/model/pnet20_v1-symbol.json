@@ -1,0 +1,561 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "data", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv1_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "8", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv1_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "8", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv1", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "8", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": [[0, 0, 0], [1, 0, 0], [2, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu1_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu1", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[3, 0, 0], [4, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "8", 
+        "num_group": "8"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "8", 
+        "num_group": "8"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv2_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "8", 
+        "num_group": "8"
+      }, 
+      "inputs": [[5, 0, 0], [6, 0, 0], [7, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu2_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu2_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[8, 0, 0], [9, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "16"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "16"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv2_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "16"
+      }, 
+      "inputs": [[10, 0, 0], [11, 0, 0], [12, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu2_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu2", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[13, 0, 0], [14, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "16", 
+        "num_group": "16", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "16", 
+        "num_group": "16", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv3_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "16", 
+        "num_group": "16", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": [[15, 0, 0], [16, 0, 0], [17, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu3_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu3_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[18, 0, 0], [19, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "24"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "24"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv3_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "24"
+      }, 
+      "inputs": [[20, 0, 0], [21, 0, 0], [22, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu3_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu3", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[23, 0, 0], [24, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "24", 
+        "num_group": "24"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "24", 
+        "num_group": "24"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv4_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "24", 
+        "num_group": "24"
+      }, 
+      "inputs": [[25, 0, 0], [26, 0, 0], [27, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu4_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu4_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[28, 0, 0], [29, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_1_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "2"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_1_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "2"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv4_1", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "2"
+      }, 
+      "inputs": [[30, 0, 0], [31, 0, 0], [32, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_1_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_1_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_1_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_1_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn4_1", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[33, 0, 0], [34, 0, 0], [35, 0, 0], [36, 0, 1], [37, 0, 1]]
+    }, 
+    {
+      "op": "Reshape", 
+      "name": "conv4_1_reshape", 
+      "attrs": {"shape": "(-1, 2)"}, 
+      "inputs": [[38, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "label", 
+      "inputs": []
+    }, 
+    {
+      "op": "SoftmaxOutput", 
+      "name": "cls_prob", 
+      "attrs": {
+        "multi_output": "True", 
+        "use_ignore": "True"
+      }, 
+      "inputs": [[39, 0, 0], [40, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_2_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "4"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_2_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "4"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv4_2", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "4"
+      }, 
+      "inputs": [[30, 0, 0], [42, 0, 0], [43, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_2_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_2_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_2_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_2_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn4_2", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[44, 0, 0], [45, 0, 0], [46, 0, 0], [47, 0, 1], [48, 0, 1]]
+    }, 
+    {
+      "op": "Reshape", 
+      "name": "conv4_2_reshape", 
+      "attrs": {"shape": "(-1, 4)"}, 
+      "inputs": [[49, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bbox_target", 
+      "inputs": []
+    }, 
+    {
+      "op": "LinearRegressionOutput", 
+      "name": "bbox_pred", 
+      "attrs": {"grad_scale": "1"}, 
+      "inputs": [[50, 0, 0], [51, 0, 0]]
+    }, 
+    {
+      "op": "Custom", 
+      "name": "negative_mining", 
+      "attrs": {"op_type": "negativemining"}, 
+      "inputs": [[41, 0, 0], [40, 0, 0], [52, 0, 0], [51, 0, 0]]
+    }
+  ], 
+  "arg_nodes": [
+    0, 
+    1, 
+    2, 
+    4, 
+    6, 
+    7, 
+    9, 
+    11, 
+    12, 
+    14, 
+    16, 
+    17, 
+    19, 
+    21, 
+    22, 
+    24, 
+    26, 
+    27, 
+    29, 
+    31, 
+    32, 
+    34, 
+    35, 
+    36, 
+    37, 
+    40, 
+    42, 
+    43, 
+    45, 
+    46, 
+    47, 
+    48, 
+    51
+  ], 
+  "node_row_ptr": [
+    0, 
+    1, 
+    2, 
+    3, 
+    4, 
+    5, 
+    6, 
+    7, 
+    8, 
+    9, 
+    10, 
+    11, 
+    12, 
+    13, 
+    14, 
+    15, 
+    16, 
+    17, 
+    18, 
+    19, 
+    20, 
+    21, 
+    22, 
+    23, 
+    24, 
+    25, 
+    26, 
+    27, 
+    28, 
+    29, 
+    30, 
+    31, 
+    32, 
+    33, 
+    34, 
+    35, 
+    36, 
+    37, 
+    38, 
+    41, 
+    42, 
+    43, 
+    44, 
+    45, 
+    46, 
+    47, 
+    48, 
+    49, 
+    50, 
+    51, 
+    54, 
+    55, 
+    56, 
+    57, 
+    61
+  ], 
+  "heads": [[53, 0, 0], [53, 1, 0], [53, 2, 0], [53, 3, 0]], 
+  "attrs": {"mxnet_version": ["int", 10100]}
+}

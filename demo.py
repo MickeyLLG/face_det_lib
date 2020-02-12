@@ -5,9 +5,9 @@ import time
 
 parser = argparse.ArgumentParser(description='Test')
 # parser.add_argument('--cpu', action="store_true", default=True, help='Use cpu inference.')
-parser.add_argument('--face_det', default='centerface',
+parser.add_argument('--face_det', default='zqmtcnn',
                     type=str, help='Method used to detect faces.')
-parser.add_argument('--landmark_det', default='pfld',
+parser.add_argument('--landmark_det', default='L106Net112',
                     type=str, help='Method used to detect landmarks.')
 parser.add_argument("--image", type=str, default=None,
                     help="image file to be processed.")
@@ -46,6 +46,9 @@ if __name__ == '__main__':
     elif args.face_det == 'mobileface':
         from det_mobileface import mobileface_face_detector
         face_detector = mobileface_face_detector()
+    elif args.face_det == 'zqmtcnn':
+        from det_zqcnn import zqmtcnn_face_detector
+        face_detector = zqmtcnn_face_detector()
     else:
         print("Don't support face detector!")
         exit(0)
@@ -55,6 +58,12 @@ if __name__ == '__main__':
     elif args.landmark_det == 'pfld':
         from det_pfld import pfld_landmark_detector
         landmark_detector = pfld_landmark_detector()
+    elif args.landmark_det == 'L106Net112':
+        from det_zqcnn import L106Net112_landmark_detector
+        landmark_detector = L106Net112_landmark_detector()
+    elif args.landmark_det == 'L106Net96':
+        from det_zqcnn import L106Net96_landmark_detector
+        landmark_detector = L106Net96_landmark_detector()
     else:
         print("Don't support landmark detector!")
         exit(0)
@@ -91,7 +100,7 @@ if __name__ == '__main__':
             cv2.imshow('video', frame)
             k = cv2.waitKey(40)
             # q键退出
-            if (k & 0xff == ord('q')):
+            if k & 0xff == ord('q'):
                 break
         cap.release()
         out.release()

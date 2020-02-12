@@ -1,0 +1,3 @@
+from .landmark_detector import L106Net112_landmark_detector
+from .landmark_detector import L106Net96_landmark_detector
+from .face_detector import zqmtcnn_face_detector

@@ -1,0 +1,2386 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "data", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv1_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "32"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv1_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "32"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv1", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "32"
+      }, 
+      "inputs": [[0, 0, 0], [1, 0, 0], [2, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn1_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn1_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn1_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn1_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn1", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[3, 0, 0], [4, 0, 0], [5, 0, 0], [6, 0, 1], [7, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu1_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu1", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[8, 0, 0], [9, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_dw_weight", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "32", 
+        "num_group": "32"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_dw_bias", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "32", 
+        "num_group": "32"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv2_dw", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "32", 
+        "num_group": "32"
+      }, 
+      "inputs": [[10, 0, 0], [11, 0, 0], [12, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn2_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[13, 0, 0], [14, 0, 0], [15, 0, 0], [16, 0, 1], [17, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu2_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu2_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[18, 0, 0], [19, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "32"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv2_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "32"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv2_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "32"
+      }, 
+      "inputs": [[20, 0, 0], [21, 0, 0], [22, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn2_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn2_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[23, 0, 0], [24, 0, 0], [25, 0, 0], [26, 0, 1], [27, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu2_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu2_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[28, 0, 0], [29, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "32", 
+        "num_group": "32", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "32", 
+        "num_group": "32", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv3_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "32", 
+        "num_group": "32", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": [[30, 0, 0], [31, 0, 0], [32, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn3_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[33, 0, 0], [34, 0, 0], [35, 0, 0], [36, 0, 1], [37, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu3_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu3_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[38, 0, 0], [39, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv3_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv3_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": [[40, 0, 0], [41, 0, 0], [42, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn3_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn3_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[43, 0, 0], [44, 0, 0], [45, 0, 0], [46, 0, 1], [47, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu3_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu3_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[48, 0, 0], [49, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_dw_weight", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "64", 
+        "num_group": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_dw_bias", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "64", 
+        "num_group": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv4_dw", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "64", 
+        "num_group": "64"
+      }, 
+      "inputs": [[50, 0, 0], [51, 0, 0], [52, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn4_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[53, 0, 0], [54, 0, 0], [55, 0, 0], [56, 0, 1], [57, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu4_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu4_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[58, 0, 0], [59, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv4_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv4_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": [[60, 0, 0], [61, 0, 0], [62, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn4_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn4_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[63, 0, 0], [64, 0, 0], [65, 0, 0], [66, 0, 1], [67, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu4_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu4_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[68, 0, 0], [69, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv5_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "64", 
+        "num_group": "64", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv5_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "64", 
+        "num_group": "64", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv5_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "64", 
+        "num_group": "64", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": [[70, 0, 0], [71, 0, 0], [72, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn5_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[73, 0, 0], [74, 0, 0], [75, 0, 0], [76, 0, 1], [77, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu5_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu5_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[78, 0, 0], [79, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv5_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv5_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv5_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": [[80, 0, 0], [81, 0, 0], [82, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn5_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn5_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[83, 0, 0], [84, 0, 0], [85, 0, 0], [86, 0, 1], [87, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu5_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu5_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[88, 0, 0], [89, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv6_dw_weight", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "64", 
+        "num_group": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv6_dw_bias", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "64", 
+        "num_group": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv6_dw", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "64", 
+        "num_group": "64"
+      }, 
+      "inputs": [[90, 0, 0], [91, 0, 0], [92, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn6_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[93, 0, 0], [94, 0, 0], [95, 0, 0], [96, 0, 1], [97, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu6_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu6_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[98, 0, 0], [99, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv6_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv6_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv6_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "64"
+      }, 
+      "inputs": [[100, 0, 0], [101, 0, 0], [102, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn6_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[103, 0, 0], [104, 0, 0], [105, 0, 0], [106, 0, 1], [107, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu6_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu6_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[108, 0, 0], [109, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv7_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "64", 
+        "num_group": "64", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv7_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "64", 
+        "num_group": "64", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv7_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "64", 
+        "num_group": "64", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": [[110, 0, 0], [111, 0, 0], [112, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn7_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[113, 0, 0], [114, 0, 0], [115, 0, 0], [116, 0, 1], [117, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu7_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu7_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[118, 0, 0], [119, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv7_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "128"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv7_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "128"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv7_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "128"
+      }, 
+      "inputs": [[120, 0, 0], [121, 0, 0], [122, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn7_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn7_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[123, 0, 0], [124, 0, 0], [125, 0, 0], [126, 0, 1], [127, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu7_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu7_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[128, 0, 0], [129, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv8_dw_weight", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "128", 
+        "num_group": "128"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv8_dw_bias", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "128", 
+        "num_group": "128"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv8_dw", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "128", 
+        "num_group": "128"
+      }, 
+      "inputs": [[130, 0, 0], [131, 0, 0], [132, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn8_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[133, 0, 0], [134, 0, 0], [135, 0, 0], [136, 0, 1], [137, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu8_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu8_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[138, 0, 0], [139, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv8_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "128"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv8_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "128"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv8_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "128"
+      }, 
+      "inputs": [[140, 0, 0], [141, 0, 0], [142, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn8_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn8_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[143, 0, 0], [144, 0, 0], [145, 0, 0], [146, 0, 1], [147, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu8_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu8_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[148, 0, 0], [149, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv9_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "128", 
+        "num_group": "128", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv9_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "128", 
+        "num_group": "128", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv9_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "128", 
+        "num_group": "128", 
+        "stride": "(2, 2)"
+      }, 
+      "inputs": [[150, 0, 0], [151, 0, 0], [152, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn9_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[153, 0, 0], [154, 0, 0], [155, 0, 0], [156, 0, 1], [157, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu9_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu9_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[158, 0, 0], [159, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv9_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv9_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv9_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": [[160, 0, 0], [161, 0, 0], [162, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn9_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn9_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[163, 0, 0], [164, 0, 0], [165, 0, 0], [166, 0, 1], [167, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu9_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu9_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[168, 0, 0], [169, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv10_dw_weight", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "256", 
+        "num_group": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv10_dw_bias", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "256", 
+        "num_group": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv10_dw", 
+      "attrs": {
+        "kernel": "(2, 2)", 
+        "num_filter": "256", 
+        "num_group": "256"
+      }, 
+      "inputs": [[170, 0, 0], [171, 0, 0], [172, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn10_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[173, 0, 0], [174, 0, 0], [175, 0, 0], [176, 0, 1], [177, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu10_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu10_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[178, 0, 0], [179, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv10_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv10_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv10_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": [[180, 0, 0], [181, 0, 0], [182, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn10_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn10_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[183, 0, 0], [184, 0, 0], [185, 0, 0], [186, 0, 1], [187, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu10_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu10_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[188, 0, 0], [189, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv11_dw_weight", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "256", 
+        "num_group": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv11_dw_bias", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "256", 
+        "num_group": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv11_dw", 
+      "attrs": {
+        "kernel": "(3, 3)", 
+        "num_filter": "256", 
+        "num_group": "256"
+      }, 
+      "inputs": [[190, 0, 0], [191, 0, 0], [192, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_dw_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_dw_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_dw_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_dw_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn11_dw", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[193, 0, 0], [194, 0, 0], [195, 0, 0], [196, 0, 1], [197, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu11_dw_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu11_dw", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[198, 0, 0], [199, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv11_sep_weight", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv11_sep_bias", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "Convolution", 
+      "name": "conv11_sep", 
+      "attrs": {
+        "kernel": "(1, 1)", 
+        "num_filter": "256"
+      }, 
+      "inputs": [[200, 0, 0], [201, 0, 0], [202, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_sep_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_sep_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_sep_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn11_sep_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn11_sep", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[203, 0, 0], [204, 0, 0], [205, 0, 0], [206, 0, 1], [207, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "prelu11_sep_gamma", 
+      "attrs": {
+        "__init__": "[\"Constant\", {\"value\": 0.25}]", 
+        "act_type": "prelu"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "LeakyReLU", 
+      "name": "prelu11_sep", 
+      "attrs": {"act_type": "prelu"}, 
+      "inputs": [[208, 0, 0], [209, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "conv6_3_weight", 
+      "attrs": {"num_hidden": "212"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "conv6_3_bias", 
+      "attrs": {"num_hidden": "212"}, 
+      "inputs": []
+    }, 
+    {
+      "op": "FullyConnected", 
+      "name": "conv6_3", 
+      "attrs": {"num_hidden": "212"}, 
+      "inputs": [[210, 0, 0], [211, 0, 0], [212, 0, 0]]
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_3_gamma", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_3_beta", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_3_moving_mean", 
+      "attrs": {
+        "__init__": "[\"zero\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "bn6_3_moving_var", 
+      "attrs": {
+        "__init__": "[\"one\", {}]", 
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": []
+    }, 
+    {
+      "op": "BatchNorm", 
+      "name": "bn6_3", 
+      "attrs": {
+        "fix_gamma": "False", 
+        "momentum": "0.9"
+      }, 
+      "inputs": [[213, 0, 0], [214, 0, 0], [215, 0, 0], [216, 0, 1], [217, 0, 1]]
+    }, 
+    {
+      "op": "null", 
+      "name": "landmark_target", 
+      "inputs": []
+    }, 
+    {
+      "op": "LinearRegressionOutput", 
+      "name": "landmark_pred", 
+      "attrs": {"grad_scale": "1"}, 
+      "inputs": [[218, 0, 0], [219, 0, 0]]
+    }, 
+    {
+      "op": "Custom", 
+      "name": "negative_mining", 
+      "attrs": {"op_type": "negativemining_onlylandmark106"}, 
+      "inputs": [[220, 0, 0], [219, 0, 0]]
+    }
+  ], 
+  "arg_nodes": [
+    0, 
+    1, 
+    2, 
+    4, 
+    5, 
+    6, 
+    7, 
+    9, 
+    11, 
+    12, 
+    14, 
+    15, 
+    16, 
+    17, 
+    19, 
+    21, 
+    22, 
+    24, 
+    25, 
+    26, 
+    27, 
+    29, 
+    31, 
+    32, 
+    34, 
+    35, 
+    36, 
+    37, 
+    39, 
+    41, 
+    42, 
+    44, 
+    45, 
+    46, 
+    47, 
+    49, 
+    51, 
+    52, 
+    54, 
+    55, 
+    56, 
+    57, 
+    59, 
+    61, 
+    62, 
+    64, 
+    65, 
+    66, 
+    67, 
+    69, 
+    71, 
+    72, 
+    74, 
+    75, 
+    76, 
+    77, 
+    79, 
+    81, 
+    82, 
+    84, 
+    85, 
+    86, 
+    87, 
+    89, 
+    91, 
+    92, 
+    94, 
+    95, 
+    96, 
+    97, 
+    99, 
+    101, 
+    102, 
+    104, 
+    105, 
+    106, 
+    107, 
+    109, 
+    111, 
+    112, 
+    114, 
+    115, 
+    116, 
+    117, 
+    119, 
+    121, 
+    122, 
+    124, 
+    125, 
+    126, 
+    127, 
+    129, 
+    131, 
+    132, 
+    134, 
+    135, 
+    136, 
+    137, 
+    139, 
+    141, 
+    142, 
+    144, 
+    145, 
+    146, 
+    147, 
+    149, 
+    151, 
+    152, 
+    154, 
+    155, 
+    156, 
+    157, 
+    159, 
+    161, 
+    162, 
+    164, 
+    165, 
+    166, 
+    167, 
+    169, 
+    171, 
+    172, 
+    174, 
+    175, 
+    176, 
+    177, 
+    179, 
+    181, 
+    182, 
+    184, 
+    185, 
+    186, 
+    187, 
+    189, 
+    191, 
+    192, 
+    194, 
+    195, 
+    196, 
+    197, 
+    199, 
+    201, 
+    202, 
+    204, 
+    205, 
+    206, 
+    207, 
+    209, 
+    211, 
+    212, 
+    214, 
+    215, 
+    216, 
+    217, 
+    219
+  ], 
+  "node_row_ptr": [
+    0, 
+    1, 
+    2, 
+    3, 
+    4, 
+    5, 
+    6, 
+    7, 
+    8, 
+    11, 
+    12, 
+    13, 
+    14, 
+    15, 
+    16, 
+    17, 
+    18, 
+    19, 
+    20, 
+    23, 
+    24, 
+    25, 
+    26, 
+    27, 
+    28, 
+    29, 
+    30, 
+    31, 
+    32, 
+    35, 
+    36, 
+    37, 
+    38, 
+    39, 
+    40, 
+    41, 
+    42, 
+    43, 
+    44, 
+    47, 
+    48, 
+    49, 
+    50, 
+    51, 
+    52, 
+    53, 
+    54, 
+    55, 
+    56, 
+    59, 
+    60, 
+    61, 
+    62, 
+    63, 
+    64, 
+    65, 
+    66, 
+    67, 
+    68, 
+    71, 
+    72, 
+    73, 
+    74, 
+    75, 
+    76, 
+    77, 
+    78, 
+    79, 
+    80, 
+    83, 
+    84, 
+    85, 
+    86, 
+    87, 
+    88, 
+    89, 
+    90, 
+    91, 
+    92, 
+    95, 
+    96, 
+    97, 
+    98, 
+    99, 
+    100, 
+    101, 
+    102, 
+    103, 
+    104, 
+    107, 
+    108, 
+    109, 
+    110, 
+    111, 
+    112, 
+    113, 
+    114, 
+    115, 
+    116, 
+    119, 
+    120, 
+    121, 
+    122, 
+    123, 
+    124, 
+    125, 
+    126, 
+    127, 
+    128, 
+    131, 
+    132, 
+    133, 
+    134, 
+    135, 
+    136, 
+    137, 
+    138, 
+    139, 
+    140, 
+    143, 
+    144, 
+    145, 
+    146, 
+    147, 
+    148, 
+    149, 
+    150, 
+    151, 
+    152, 
+    155, 
+    156, 
+    157, 
+    158, 
+    159, 
+    160, 
+    161, 
+    162, 
+    163, 
+    164, 
+    167, 
+    168, 
+    169, 
+    170, 
+    171, 
+    172, 
+    173, 
+    174, 
+    175, 
+    176, 
+    179, 
+    180, 
+    181, 
+    182, 
+    183, 
+    184, 
+    185, 
+    186, 
+    187, 
+    188, 
+    191, 
+    192, 
+    193, 
+    194, 
+    195, 
+    196, 
+    197, 
+    198, 
+    199, 
+    200, 
+    203, 
+    204, 
+    205, 
+    206, 
+    207, 
+    208, 
+    209, 
+    210, 
+    211, 
+    212, 
+    215, 
+    216, 
+    217, 
+    218, 
+    219, 
+    220, 
+    221, 
+    222, 
+    223, 
+    224, 
+    227, 
+    228, 
+    229, 
+    230, 
+    231, 
+    232, 
+    233, 
+    234, 
+    235, 
+    236, 
+    239, 
+    240, 
+    241, 
+    242, 
+    243, 
+    244, 
+    245, 
+    246, 
+    247, 
+    248, 
+    251, 
+    252, 
+    253, 
+    254, 
+    255, 
+    256, 
+    257, 
+    258, 
+    259, 
+    260, 
+    263, 
+    264, 
+    265, 
+    267
+  ], 
+  "heads": [[221, 0, 0], [221, 1, 0]], 
+  "attrs": {"mxnet_version": ["int", 10100]}
+}

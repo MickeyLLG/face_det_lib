@@ -1,10 +1,6 @@
-import sys
 import onnxruntime as ort
 import cv2
 import numpy as np
-
-sys.path.append('..')
-
 from Interface import landmark_detector
 
 session = ort.InferenceSession("det_pfld/graphs/pfld-lite.onnx")
