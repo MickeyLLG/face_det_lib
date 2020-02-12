@@ -47,7 +47,7 @@ python demo.py --image /path/to/image.jpg --save_path /path/to/save.jpg --face_d
 `--face_det`参数决定了人脸检测使用的方法，可选包括：  
 `dlib`,`mtcnn`,`linzaer`,`centerface`,`biubug`,`mobileface`,`zqmtcnn`
 ### 人脸关键点检测方法选择
-`--landmark_det`参数决定了人脸检测使用的方法，可选包括：  
+`--landmark_det`参数决定了人脸关键点检测使用的方法，可选包括：
 `dlib`,`pfld`,`L106Net112`,`L106Net96`
 ## 参考
 - [**pfld**](https://github.com/xindongzhang/MNN-APPLICATIONS "pfld")
