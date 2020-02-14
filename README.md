@@ -8,6 +8,7 @@
 ## 测试过的运行环境
 -  windows10
 -  python3.6
+-  numpy==1.16.6
 -  opencv-python==4.1.2
 -  dlib==19.6.1（dlib）
 -  mtcnn==0.1.0（mtcnn）
