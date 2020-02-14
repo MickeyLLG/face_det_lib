@@ -32,7 +32,7 @@ python demo.py --video /path/to/video.mp4 --save_path /path/to/save.mp4 --face_d
 ```
 ### 摄像头输入
 
-需要声明使用的摄像头序号
+需要声明使用的摄像头序号:
 
 ```bash
 python demo.py --cam 0 --save_path /path/to/save.mp4 --face_det fd --landmark_det ld
