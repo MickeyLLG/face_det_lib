@@ -20,7 +20,7 @@ parser.add_argument("--fps", type=int, default=15,
                     help="The frames per second of the video to save.")
 parser.add_argument("--time_cost", type=str, default=None,
                     help="The path(.txt) to save time cost per frame.")
-parser.add_argument("--stretchY", type=float, default=1.0,
+parser.add_argument("--stretchY", type=float, default=1.1,
                     help="The face boxes usually need to be stretched along axis Y,this is the stretch rate.")
 args = parser.parse_args()
 
