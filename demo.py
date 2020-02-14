@@ -1,6 +1,7 @@
 import argparse
 import cv2
 import time
+import os
 
 
 parser = argparse.ArgumentParser(description='Test')
@@ -25,6 +26,7 @@ parser.add_argument("--stretchY", type=float, default=1.1,
 args = parser.parse_args()
 
 if __name__ == '__main__':
+    # Generate detectors
     face_detector = None
     landmark_detector = None
     if args.face_det == 'dlib':
@@ -66,7 +68,13 @@ if __name__ == '__main__':
     else:
         print("Don't support landmark detector!")
         exit(0)
+
+    # Make dirs
     save_path = args.save_path
+    if not os.path.exists(os.path.dirname(save_path)):
+        os.makedirs(os.path.dirname(save_path))
+
+    # Detection and visualization
     time_cost = []
     if args.image is None:
         video_src = args.cam if args.cam is not None else args.video
