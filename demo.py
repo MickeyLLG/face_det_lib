@@ -7,7 +7,7 @@ import os
 parser = argparse.ArgumentParser(description='Test')
 parser.add_argument('--face_det', default='centerface',
                     type=str, help='Method used to detect faces.')
-parser.add_argument('--landmark_det', default='pfld',
+parser.add_argument('--landmark_det', default='cnn',
                     type=str, help='Method used to detect landmarks.')
 parser.add_argument("--image", type=str, default=None,
                     help="image file to be processed.")
@@ -65,6 +65,9 @@ if __name__ == '__main__':
     elif args.landmark_det == 'L106Net96':
         from det_zqcnn import L106Net96_landmark_detector
         landmark_detector = L106Net96_landmark_detector()
+    elif args.landmark_det == 'cnn':
+        from det_cnn import cnn_landmark_detector
+        landmark_detector = cnn_landmark_detector()
     else:
         print("Don't support landmark detector!")
         exit(0)

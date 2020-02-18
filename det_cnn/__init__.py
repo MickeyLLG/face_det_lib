@@ -1,0 +1,1 @@
+from .landmark_detector import cnn_landmark_detector
