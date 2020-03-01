@@ -13,7 +13,7 @@
 -  dlib==19.6.1（dlib）
 -  mtcnn==0.1.0（mtcnn）
 -  pytorch==1.4.0（biubug）
--  onnx==1.5.0（linzaer，pfld，centerface）
+-  onnx==1.5.0（linzaer，pfld，centerface，frda）
 -  mxnet==1.5.0（mobileface，zqcnn）
 -  tensorflow==1.5.0（cnn）
 ## 安装
@@ -50,7 +50,7 @@ python demo.py --image /path/to/image.jpg --save_path /path/to/save.jpg --face_d
 `dlib`,`mtcnn`,`linzaer`,`centerface`,`biubug`,`mobileface`,`zqmtcnn`
 ### 人脸关键点检测方法选择
 `--landmark_det`参数决定了人脸关键点检测使用的方法，可选方法包括：  
-`dlib`,`pfld`,`L106Net112`,`L106Net96`,`cnn`
+`dlib`,`pfld`,`L106Net112`,`L106Net96`,`cnn`,`frda`
 ## 参考
 - [**pfld**](https://github.com/xindongzhang/MNN-APPLICATIONS "pfld")
 - [**linzaer**](https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB "linzaer")
@@ -59,3 +59,5 @@ python demo.py --image /path/to/image.jpg --save_path /path/to/save.jpg --face_d
 - [**zqcnn**](https://github.com/zuoqing1988/train-mtcnn-head "zqcnn")
 - [**centerface**](https://github.com/Star-Clouds/centerface "centerface")
 - [**cnn**](https://github.com/yinguobing/head-pose-estimation "cnn")
+- [**frda**](https://github.com/Star-Clouds/FRDA "frda")
+

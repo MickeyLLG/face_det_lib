@@ -3,7 +3,6 @@ import cv2
 import time
 import os
 
-
 parser = argparse.ArgumentParser(description='Test')
 parser.add_argument('--face_det', default='centerface',
                     type=str, help='Method used to detect faces.')
@@ -31,45 +30,58 @@ if __name__ == '__main__':
     landmark_detector = None
     if args.face_det == 'dlib':
         from det_dlib import dlib_face_detector
+
         face_detector = dlib_face_detector()
     elif args.face_det == 'mtcnn':
         from det_mtcnn import mtcnn_face_detector
+
         face_detector = mtcnn_face_detector()
     elif args.face_det == 'linzaer':
         from det_linzaer import linzaer_face_detector
+
         face_detector = linzaer_face_detector()
     elif args.face_det == 'centerface':
         from det_centerface import centerface_face_detector
+
         face_detector = centerface_face_detector()
     elif args.face_det == 'biubug':
         from det_biubug import biubug_face_detector
+
         face_detector = biubug_face_detector()
     elif args.face_det == 'mobileface':
         from det_mobileface import mobileface_face_detector
+
         face_detector = mobileface_face_detector()
     elif args.face_det == 'zqmtcnn':
         from det_zqcnn import zqmtcnn_face_detector
+
         face_detector = zqmtcnn_face_detector()
     else:
         print("Don't support face detector!")
         exit(0)
     if args.landmark_det == 'dlib':
         from det_dlib import dlib_landmark_detector
+
         landmark_detector = dlib_landmark_detector()
     elif args.landmark_det == 'pfld':
         from det_pfld import pfld_landmark_detector
+
         landmark_detector = pfld_landmark_detector()
     elif args.landmark_det == 'L106Net112':
         from det_zqcnn import L106Net112_landmark_detector
+
         landmark_detector = L106Net112_landmark_detector()
     elif args.landmark_det == 'L106Net96':
         from det_zqcnn import L106Net96_landmark_detector
+
         landmark_detector = L106Net96_landmark_detector()
     elif args.landmark_det == 'cnn':
         from det_cnn import cnn_landmark_detector
+
         landmark_detector = cnn_landmark_detector()
     elif args.landmark_det == 'frda':
         from det_frda import frda_landmark_detector
+
         landmark_detector = frda_landmark_detector()
     else:
         print("Don't support landmark detector!")
@@ -108,7 +120,7 @@ if __name__ == '__main__':
                 cv2.rectangle(frame, (face[0], face[1]), (face[0] + face[2], face[1] + face[3]), (0, 255, 0), 1)
             for marks in landmarks:
                 for mark in marks:
-                    cv2.circle(frame, (mark[0], mark[1]), 1, (255, 0, 0), 1)
+                    cv2.circle(frame, (mark[0], mark[1]), 0, (255, 0, 0), 2)
             out.write(frame)
             cv2.imshow('video', frame)
             k = cv2.waitKey(40)
