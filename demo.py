@@ -120,7 +120,7 @@ if __name__ == '__main__':
                 cv2.rectangle(frame, (face[0], face[1]), (face[0] + face[2], face[1] + face[3]), (0, 255, 0), 1)
             for marks in landmarks:
                 for mark in marks:
-                    cv2.circle(frame, (mark[0], mark[1]), 0, (255, 0, 0), 2)
+                    cv2.circle(frame, (mark[0], mark[1]), 0, (255, 0, 0), 1)
             out.write(frame)
             cv2.imshow('video', frame)
             k = cv2.waitKey(40)
