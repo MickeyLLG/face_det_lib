@@ -11,3 +11,8 @@ class landmark_detector(metaclass=ABCMeta): # return [[face1 landmarks],[face2 l
     @abstractmethod
     def det_landmarks(self, img, faces): # [[[x11,y11],[x12,y12],...],[[x21,...],...]]
         pass
+
+class eyeball_estimator(metaclass=ABCMeta): # return [[face1 landmarks],[face2 landmarks],...]
+    @abstractmethod
+    def eyeball_estimate(self, img, landmarks): # [[[x11,y11],[x12,y12],...],[[x21,...],...]]
+        pass

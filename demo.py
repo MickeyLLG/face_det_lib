@@ -10,7 +10,7 @@ parser.add_argument('--landmark_det', default='frda',
                     type=str, help='Method used to detect landmarks.')
 parser.add_argument("--image", type=str, default=None,
                     help="image file to be processed.")
-parser.add_argument("--video", type=str, default='test/test_15fps.avi',
+parser.add_argument("--video", type=str, default='test/test_eye.mp4',
                     help="Video file to be processed.")
 parser.add_argument("--cam", type=int, default=None,
                     help="The webcam index.")
@@ -109,6 +109,7 @@ if __name__ == '__main__':
         out = cv2.VideoWriter(save_path, fourcc, fps, size)
         while cap.isOpened():
             ret, frame = cap.read()
+            # frame=cv2.flip(frame,1)
             if not ret:
                 break
             tic = time.time()
@@ -120,7 +121,7 @@ if __name__ == '__main__':
                 cv2.rectangle(frame, (face[0], face[1]), (face[0] + face[2], face[1] + face[3]), (0, 255, 0), 1)
             for marks in landmarks:
                 for mark in marks:
-                    cv2.circle(frame, (mark[0], mark[1]), 0, (255, 0, 0), 1)
+                    cv2.circle(frame, (mark[0], mark[1]), 1, (255, 0, 0), 1)
             out.write(frame)
             cv2.imshow('video', frame)
             k = cv2.waitKey(40)
