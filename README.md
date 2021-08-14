@@ -15,7 +15,7 @@
 -  pytorch==1.4.0（biubug）
 -  onnx==1.5.0（linzaer，pfld，centerface，frda）
 -  mxnet==1.5.0（mobileface，zqcnn）
--  tensorflow==1.5.0（cnn）
+-  tensorflow==1.5.0（cnn）.
 ## 安装
 项目内包含所有可能用到的预训练模型，直接克隆即可
 ```bash
