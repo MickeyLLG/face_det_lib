@@ -4,7 +4,7 @@ import time
 import os
 
 parser = argparse.ArgumentParser(description='Test')
-parser.add_argument('--face_det', default='centerface',
+parser.add_argument('--face_det', default='linzaer',
                     type=str, help='Method used to detect faces.')
 parser.add_argument('--landmark_det', default='frda',
                     type=str, help='Method used to detect landmarks.')
@@ -20,7 +20,7 @@ parser.add_argument("--fps", type=int, default=15,
                     help="The frames per second of the video to save.")
 parser.add_argument("--time_cost", type=str, default=None,
                     help="The path(.txt) to save time cost per frame.")
-parser.add_argument("--stretchY", type=float, default=1.1,
+parser.add_argument("--stretchY", type=float, default=1,
                     help="The face boxes usually need to be stretched along axis Y,this is the stretch rate.")
 args = parser.parse_args()
 
@@ -56,6 +56,9 @@ if __name__ == '__main__':
         from det_zqcnn import zqmtcnn_face_detector
 
         face_detector = zqmtcnn_face_detector()
+    elif args.face_det == 'pig':
+        from det_pig import pig_face_detector
+        face_detector = pig_face_detector()
     else:
         print("Don't support face detector!")
         exit(0)
@@ -83,6 +86,10 @@ if __name__ == '__main__':
         from det_frda import frda_landmark_detector
 
         landmark_detector = frda_landmark_detector()
+    elif args.landmark_det == 'pig':
+        from det_pig import pig_landmark_detector
+
+        landmark_detector = pig_landmark_detector()
     else:
         print("Don't support landmark detector!")
         exit(0)
@@ -118,10 +125,11 @@ if __name__ == '__main__':
             landmarks = landmark_detector.det_landmarks(frame, faces=faces)  # landmarks detection
             time_cost.append(str(time.time() - tic))
             for face in faces:
-                cv2.rectangle(frame, (face[0], face[1]), (face[0] + face[2], face[1] + face[3]), (0, 255, 0), 1)
+                cv2.rectangle(frame, (int(face[0]), int(face[1])),
+                              (int(face[0] + face[2]), int(face[1] + face[3])), (0, 255, 0), 1)
             for marks in landmarks:
                 for mark in marks:
-                    cv2.circle(frame, (mark[0], mark[1]), 1, (255, 0, 0), 1)
+                    cv2.circle(frame, (int(mark[0]), int(mark[1])), 1, (255, 0, 0), 1)
             out.write(frame)
             cv2.imshow('video', frame)
             k = cv2.waitKey(40)
