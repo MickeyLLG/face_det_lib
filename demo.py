@@ -4,9 +4,9 @@ import time
 import os
 
 parser = argparse.ArgumentParser(description='Test')
-parser.add_argument('--face_det', default='linzaer',
+parser.add_argument('--face_det', default='pig',
                     type=str, help='Method used to detect faces.')
-parser.add_argument('--landmark_det', default='frda',
+parser.add_argument('--landmark_det', default='pig',
                     type=str, help='Method used to detect landmarks.')
 parser.add_argument("--image", type=str, default=None,
                     help="image file to be processed.")
