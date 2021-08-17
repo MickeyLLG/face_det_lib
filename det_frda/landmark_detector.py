@@ -6,16 +6,14 @@ from facerda import FaceRDA
 from Interface import landmark_detector
 
 model_path = "det_frda/model/frda_sim.onnx"
-l_eye_vls_path = 'det_frda/model/l_eye_vls.txt'
-r_eye_vls_path = 'det_frda/model/r_eye_vls.txt'
-l_eye_vls = [eval(v.replace('\n', '')) for v in open(l_eye_vls_path, 'r')]
-r_eye_vls = [eval(v.replace('\n', '')) for v in open(r_eye_vls_path, 'r')]
 facerda = FaceRDA(model_path, True)
-eye_marks = [1446, 3626, 5179, 5965, 4803, 3386, 10083, 10705, 12121, 14587, 13043, 11754]
-eyebrow_marks = [2066, 4001, 5161, 6064, 6810, 9569, 10304, 39911, 13012, 14432]
-nose_marks = [8154, 8054, 8185, 8192, 6012, 6883, 8085, 9284, 10008]
-outline_marks = [17302, 18696, 19632, 22172, 42125, 43040, 43591, 43902, 44251,
-                 44574, 44986, 45380, 45997, 31972, 31697, 33091, 32044]
+FRDA_CHEEK_MARKS = [32044, 33091, 31697, 31972, 45997, 45380, 44986, 44574, 44251, 43902,
+                    43591, 43040, 42125, 22172, 19632, 18696, 17302]
+FRDA_EYEBROW_MARKS = [14432, 13012, 39911, 10304, 9569, 6810, 6064, 5161, 4001, 2066]
+FRDA_NOSE_MARKS = [8162, 8178, 8188, 8193, 9884, 9164, 8205, 7244, 6516]
+FRDA_EYE_MARKS = [14067, 12384, 11354, 10456, 11493, 12654, 5829, 4921, 3887, 2216, 3641, 4802]
+FRDA_MOUTH_MARKS = [10796, 10396, 8936, 8216, 7496, 6026, 5523, 6916, 7637, 8237, 8837, 9556,
+                    10538, 9065, 8224, 7385, 5910, 7630, 8230, 8830]
 
 
 def get_crop_box(x1, y1, w, h, scale=1.1):
@@ -39,10 +37,12 @@ class frda_landmark_detector(landmark_detector):
             roi_box = get_crop_box(boxes[0], boxes[1], boxes[2], boxes[3], 1.4)
             face, ret_roi = crop_img(img, roi_box)
             vertices = facerda(face, roi_box)
-            marks = [[vertices[0, i], vertices[1, i]] for i in eye_marks]  # Add eye landmarks
-            marks += [[vertices[0, i], vertices[1, i]] for i in eyebrow_marks]  # Add eyebrow landmarks
-            marks += [[vertices[0, i], vertices[1, i]] for i in nose_marks]  # Add nose landmarks
-            marks += [[vertices[0, i], vertices[1, i]] for i in outline_marks]  # Add outline landmarks
+            marks = []
+            marks += [[vertices[0, i], vertices[1, i]] for i in FRDA_CHEEK_MARKS]  # Add cheek landmarks
+            marks += [[vertices[0, i], vertices[1, i]] for i in FRDA_EYEBROW_MARKS]  # Add eyebrow landmarks
+            marks += [[vertices[0, i], vertices[1, i]] for i in FRDA_NOSE_MARKS]  # Add nose landmarks
+            marks += [[vertices[0, i], vertices[1, i]] for i in FRDA_EYE_MARKS]  # Add eye landmarks
+            marks += [[vertices[0, i], vertices[1, i]] for i in FRDA_MOUTH_MARKS]  # Add mouth landmarks
             landmarks.append(marks)
         return landmarks
 
